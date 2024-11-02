@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Book from '../Book/Book';
 
 const Books = () => {
 
@@ -14,7 +15,11 @@ fetch('../../../public/booksData.json')
     return (
         <div>
             <h2 className='text-4xl font-bold text-center ' >Book</h2>
-            <p>{books.length}</p>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8  ' >
+                {
+                    books.map(book => <Book book={book} key={book.bookId} ></Book> )
+                }
+            </div>
         </div>
     );
 };
